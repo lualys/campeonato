@@ -1,0 +1,43 @@
+name: campeonato
+description: Aplicativo Flutter mostrando a tabela de classificação do Brasileirão 2025 com informações do dispositivo.
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.2.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  device_info_plus: ^12.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/palmeiras.png
+    - assets/flamengo.png
+    - assets/cruzeiro.png
+    - assets/mirassol.png
+    - assets/botafogo.png
+    - assets/bahia.png
+    - assets/fluminense.png
+    - assets/sao_paulo.png
+    - assets/gremio.png
+    - assets/athletico.png
+    - assets/internacional.png
+    - assets/corinthians.png
+    - assets/fortaleza.png
+    - assets/vasco.png
+    - assets/cuiaba.png
+    - assets/atletico_mg.png
+    - assets/bragantino.png
+    - assets/vitoria.png
+    - assets/juventude.png
+    - assets/criciuma.png
