@@ -1,33 +1,20 @@
 import 'dart:convert';
-import 'package:http/http.dart' as http;
+import 'package:flutter/services.dart' show rootBundle;
 import '../models/time_model.dart';
 
 class ApiService {
-  final String baseUrl = 'https://api.api-futebol.com.br/v1';
-  final String token;
-
-  ApiService({required this.token});
-
-  Future<List<TimeModel>> getTabela(int campeonatoId) async {
-    final url = Uri.parse('$baseUrl/campeonatos/$campeonatoId/tabela');
-    final response = await http.get(url, headers: {'Authorization': 'Bearer $token'});
-
-    if (response.statusCode == 200) {
-      final data = json.decode(response.body) as List;
-      return data.map((e) => TimeModel.fromJson(e)).toList();
-    } else {
-      throw Exception('Erro ao carregar tabela: ${response.statusCode}');
-    }
+  /// Carrega a tabela de classificação a partir de um arquivo local (sem token)
+  Future<List<TimeModel>> getTabelaLocal() async {
+    final jsonStr = await rootBundle.loadString('assets/data/tabela.json');
+    final List data = json.decode(jsonStr);
+    return data.map((e) => TimeModel.fromJson(e)).toList();
   }
 
-  Future<Map<String, dynamic>> getTimeDetalhes(int timeId) async {
-    final url = Uri.parse('$baseUrl/times/$timeId');
-    final response = await http.get(url, headers: {'Authorization': 'Bearer $token'});
-
-    if (response.statusCode == 200) {
-      return json.decode(response.body);
-    } else {
-      throw Exception('Erro ao carregar detalhes do time');
-    }
+  /// Retorna detalhes simulados de um time (mock local)
+  Future<Map<String, dynamic>> getTimeDetalhes(int posicao) async {
+    final jsonStr = await rootBundle.loadString('assets/data/tabela.json');
+    final List data = json.decode(jsonStr);
+    final time = data.firstWhere((e) => e['posicao'] == posicao);
+    return time;
   }
 }

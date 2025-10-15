@@ -1,49 +1,24 @@
 name: classificacao_brasileirao
-description: App Flutter para exibir a classificação e detalhes dos times do Brasileirão 2025.
+description: App Flutter - Classificação do Brasileirão 2025 (dados locais)
 publish_to: 'none'
 
-version: 1.0.0+1
-
 environment:
-  sdk: '>=3.3.0 <4.0.0'
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.8
   http: ^1.2.2
-  google_fonts: ^6.2.1
-  flutter_animate: ^4.5.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^4.0.0
-  flutter_launcher_icons: ^0.13.1
-  flutter_native_splash: ^2.4.0
 
 flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/logo.png
+    - assets/data/tabela.json
     - assets/images/splash_bg.png
-
-flutter_launcher_icons:
-  android: true
-  ios: true
-  image_path: "assets/images/logo.png"
-  adaptive_icon_background: "#004D00"
-  adaptive_icon_foreground: "assets/images/logo.png"
-  min_sdk_android: 21
-
-flutter_native_splash:
-  color: "#004D00"
-  image: assets/images/logo.png
-  branding: assets/images/splash_bg.png
-  color_dark: "#000000"
-  image_dark: assets/images/logo.png
-  branding_mode: bottom
-  android_12:
-    color: "#004D00"
-    image: assets/images/logo.png
+    - assets/images/shield.png
