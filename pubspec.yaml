@@ -1,43 +1,49 @@
-name: campeonato
-description: Aplicativo Flutter mostrando a tabela de classificação do Brasileirão 2025 com informações do dispositivo.
-publish_to: "none"
+name: classificacao_brasileirao
+description: App Flutter para exibir a classificação e detalhes dos times do Brasileirão 2025.
+publish_to: 'none'
 
 version: 1.0.0+1
 
 environment:
-  sdk: ">=3.2.0 <4.0.0"
+  sdk: '>=3.3.0 <4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.8
-  device_info_plus: ^12.1.0
+  http: ^1.2.2
+  google_fonts: ^6.2.1
+  flutter_animate: ^4.5.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^6.0.0
+  flutter_lints: ^4.0.0
+  flutter_launcher_icons: ^0.13.1
+  flutter_native_splash: ^2.4.0
 
 flutter:
   uses-material-design: true
+
   assets:
-    - assets/palmeiras.png
-    - assets/flamengo.png
-    - assets/cruzeiro.png
-    - assets/mirassol.png
-    - assets/botafogo.png
-    - assets/bahia.png
-    - assets/fluminense.png
-    - assets/sao_paulo.png
-    - assets/gremio.png
-    - assets/athletico.png
-    - assets/internacional.png
-    - assets/corinthians.png
-    - assets/fortaleza.png
-    - assets/vasco.png
-    - assets/cuiaba.png
-    - assets/atletico_mg.png
-    - assets/bragantino.png
-    - assets/vitoria.png
-    - assets/juventude.png
-    - assets/criciuma.png
+    - assets/images/logo.png
+    - assets/images/splash_bg.png
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/logo.png"
+  adaptive_icon_background: "#004D00"
+  adaptive_icon_foreground: "assets/images/logo.png"
+  min_sdk_android: 21
+
+flutter_native_splash:
+  color: "#004D00"
+  image: assets/images/logo.png
+  branding: assets/images/splash_bg.png
+  color_dark: "#000000"
+  image_dark: assets/images/logo.png
+  branding_mode: bottom
+  android_12:
+    color: "#004D00"
+    image: assets/images/logo.png
