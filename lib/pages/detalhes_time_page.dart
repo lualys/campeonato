@@ -1,74 +1,75 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../models/time_model.dart';
+import '../main.dart';
 
 class DetalhesTimePage extends StatelessWidget {
-  final TimeModel time;
-
-  const DetalhesTimePage({super.key, required this.time});
+  const DetalhesTimePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final args = ModalRoute.of(context)!.settings.arguments;
+    final provider = Provider.of<TimesProvider>(context, listen: false);
+
+    TimeModel? time;
+    if (args is TimeModel) {
+      time = args;
+    } else if (args is int) {
+      time = provider.getById(args);
+    }
+
+    if (time == null) {
+      return const Scaffold(
+        body: Center(child: Text("Time não encontrado.")),
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(title: Text(time.nome)),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16),
         child: Column(
           children: [
-            Center(
-              child: Image.network(
-                time.escudo,
-                height: 100,
-              ),
+            Hero(
+              tag: time.id,
+              child: Image.asset(time.escudo, height: 120),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 16),
             Text(
-              '${time.posicao}º colocado - ${time.pontos} pontos',
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              "Estatísticas 2025",
+              style: Theme.of(context).textTheme.titleLarge,
             ),
-            const Divider(height: 30),
-            _infoRow('Jogos', '${time.jogos}'),
-            _infoRow('Vitórias', '${time.vitorias}'),
-            _infoRow('Empates', '${time.empates}'),
-            _infoRow('Derrotas', '${time.derrotas}'),
-            _infoRow('Gols Pró', '${time.golsPro}'),
-            _infoRow('Gols Contra', '${time.golsContra}'),
-            _infoRow('Saldo de Gols', '${time.saldoGols}'),
-            const SizedBox(height: 20),
-            _ultimosJogos(time.ultimosJogos),
+            const SizedBox(height: 8),
+            _stat("Jogos", time.jogos),
+            _stat("Vitórias", time.vitorias),
+            _stat("Empates", time.empates),
+            _stat("Derrotas", time.derrotas),
+            _stat("Gols Pró", time.golsPro),
+            _stat("Gols Contra", time.golsContra),
+            _stat("Saldo de Gols", time.saldoGols),
+            const Divider(height: 32),
+            Text("Títulos Brasileiros:",
+                style: Theme.of(context).textTheme.titleMedium),
+            Wrap(
+              spacing: 8,
+              children: time.titulos
+                  .map((ano) => Chip(label: Text(ano.toString())))
+                  .toList(),
+            ),
           ],
         ),
       ),
     );
   }
 
-  Widget _infoRow(String label, String value) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(label),
-          Text(value, style: const TextStyle(fontWeight: FontWeight.bold)),
-        ],
-      ),
-    );
-  }
-
-  Widget _ultimosJogos(String ultimosJogos) {
-    final cores = {'V': Colors.green, 'E': Colors.orange, 'D': Colors.red};
-
+  Widget _stat(String nome, int valor) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: ultimosJogos.split('').map((r) {
-        return Padding(
-          padding: const EdgeInsets.all(4.0),
-          child: CircleAvatar(
-            backgroundColor: cores[r] ?? Colors.grey,
-            radius: 12,
-            child: Text(r, style: const TextStyle(fontSize: 12)),
-          ),
-        );
-      }).toList(),
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(nome),
+        Text(valor.toString(),
+            style: const TextStyle(fontWeight: FontWeight.bold)),
+      ],
     );
   }
 }

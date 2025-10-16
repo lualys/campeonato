@@ -1,5 +1,7 @@
 class TimeModel {
-  final int posicao;
+  final int id;
+  final String nome;
+  final String escudo;
   final int pontos;
   final int jogos;
   final int vitorias;
@@ -7,13 +9,12 @@ class TimeModel {
   final int derrotas;
   final int golsPro;
   final int golsContra;
-  final int saldoGols;
-  final String ultimosJogos;
-  final String nome;
-  final String escudo;
+  final List<int> titulos;
 
   TimeModel({
-    required this.posicao,
+    required this.id,
+    required this.nome,
+    required this.escudo,
     required this.pontos,
     required this.jogos,
     required this.vitorias,
@@ -21,26 +22,22 @@ class TimeModel {
     required this.derrotas,
     required this.golsPro,
     required this.golsContra,
-    required this.saldoGols,
-    required this.ultimosJogos,
-    required this.nome,
-    required this.escudo,
+    required this.titulos,
   });
 
-  factory TimeModel.fromJson(Map<String, dynamic> json) {
-    return TimeModel(
-      posicao: json['posicao'],
-      pontos: json['pontos'],
-      jogos: json['jogos'],
-      vitorias: json['vitorias'],
-      empates: json['empates'],
-      derrotas: json['derrotas'],
-      golsPro: json['gols_pro'],
-      golsContra: json['gols_contra'],
-      saldoGols: json['saldo_gols'],
-      ultimosJogos: json['ultimos_jogos'],
-      nome: json['time']['nome_popular'],
-      escudo: json['time']['escudo'],
-    );
-  }
+  int get saldoGols => golsPro - golsContra;
+
+  factory TimeModel.fromJson(Map<String, dynamic> json) => TimeModel(
+        id: json['id'],
+        nome: json['nome'],
+        escudo: json['escudo'],
+        pontos: json['pontos'],
+        jogos: json['jogos'],
+        vitorias: json['vitorias'],
+        empates: json['empates'],
+        derrotas: json['derrotas'],
+        golsPro: json['golsPro'],
+        golsContra: json['golsContra'],
+        titulos: List<int>.from(json['titulos']),
+      );
 }

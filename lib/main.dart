@@ -1,25 +1,45 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'models/time_model.dart';
 import 'pages/classificacao_page.dart';
+import 'pages/detalhes_time_page.dart';
 
 void main() {
-  runApp(const AppClassificacao());
+  runApp(const BrasileiraoApp());
 }
 
-class AppClassificacao extends StatelessWidget {
-  const AppClassificacao({super.key});
+class TimesProvider with ChangeNotifier {
+  List<TimeModel> times = [];
+
+  void setTimes(List<TimeModel> novos) {
+    times = novos;
+    notifyListeners();
+  }
+
+  TimeModel? getById(int id) =>
+      times.firstWhere((t) => t.id == id, orElse: () => times.first);
+}
+
+class BrasileiraoApp extends StatelessWidget {
+  const BrasileiraoApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Classificação Brasileirão 2025',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark(useMaterial3: true).copyWith(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.greenAccent,
-          brightness: Brightness.dark,
+    return ChangeNotifierProvider(
+      create: (_) => TimesProvider(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Brasileirão 2025',
+        theme: ThemeData(
+          useMaterial3: true,
+          colorSchemeSeed: Colors.green,
         ),
+        initialRoute: '/',
+        routes: {
+          '/': (_) => const ClassificacaoPage(),
+          '/detalhes': (_) => const DetalhesTimePage(),
+        },
       ),
-      home: const ClassificacaoPage(),
     );
   }
 }

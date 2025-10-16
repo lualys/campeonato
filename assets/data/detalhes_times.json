@@ -1,0 +1,38 @@
+{
+  "Palmeiras": {
+    "estadio": {"nome_popular": "Allianz Parque", "cidade": "São Paulo"},
+    "elenco": [
+      {"nome_popular": "Weverton", "posicao": "Goleiro"},
+      {"nome_popular": "Gustavo Gómez", "posicao": "Zagueiro"}
+    ]
+  },
+  "Atlético-MG": {
+    "estadio": {"nome_popular": "Mineirão", "cidade": "Belo Horizonte"},
+    "elenco": [
+      {"nome_popular": "Everson", "posicao": "Goleiro"},
+      {"nome_popular": "Réver", "posicao": "Zagueiro"}
+    ]
+  },
+  "Flamengo": {
+    "estadio": {"nome_popular": "Maracanã", "cidade": "Rio de Janeiro"},
+    "elenco": [
+      {"nome_popular": "Diego Alves", "posicao": "Goleiro"},
+      {"nome_popular": "Giorgian De Arrascaeta", "posicao": "Meia"}
+    ]
+  },
+  "Botafogo": {
+    "estadio": {"nome_popular": "Nilton Santos", "cidade": "Rio de Janeiro"},
+    "elenco": [
+      {"nome_popular": "Santos", "posicao": "Goleiro"},
+      {"nome_popular": "Joel Carli", "posicao": "Zagueiro"}
+    ]
+  },
+  "Grêmio": {
+    "estadio": {"nome_popular": "Arena do Grêmio", "cidade": "Porto Alegre"},
+    "elenco": [
+      {"nome_popular": "Marcelo Grohe", "posicao": "Goleiro"},
+      {"nome_popular": "Geromel", "posicao": "Zagueiro"}
+    ]
+  }
+  /* Adicione os outros times seguindo o mesmo padrão */
+}
