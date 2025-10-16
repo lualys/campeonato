@@ -249,8 +249,8 @@
     },
     {
       "id": 20,
-      "nome": "Coritiba",
-      "escudo": "assets/coritiba.png",
+      "nome": "Curitiba",
+      "escudo": "assets/curitiba.png",
       "pontos": 25,
       "jogos": 30,
       "vitorias": 6,

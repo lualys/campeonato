@@ -1,9 +1,7 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import '../models/time_model.dart';
-import '../main.dart';
+import '../providers/times_provider.dart';
+import '/models/time_model.dart';
 
 class ClassificacaoPage extends StatefulWidget {
   const ClassificacaoPage({super.key});
@@ -13,108 +11,141 @@ class ClassificacaoPage extends StatefulWidget {
 }
 
 class _ClassificacaoPageState extends State<ClassificacaoPage> {
-  List<TimeModel> _times = [];
-  List<TimeModel> _filtered = [];
-  bool _loading = true;
-  bool _error = false;
-  final TextEditingController _searchCtrl = TextEditingController();
-
-  @override
-  void initState() {
-    super.initState();
-    _loadTimes();
-  }
-
-  Future<void> _loadTimes() async {
-    try {
-      final jsonStr = await rootBundle.loadString('assets/times.json');
-      final data = jsonDecode(jsonStr)['times'] as List;
-      final times = data.map((e) => TimeModel.fromJson(e)).toList()
-        ..sort((a, b) => b.pontos.compareTo(a.pontos));
-
-      Provider.of<TimesProvider>(context, listen: false).setTimes(times);
-      setState(() {
-        _times = times;
-        _filtered = times;
-        _loading = false;
-      });
-    } catch (e) {
-      setState(() {
-        _error = true;
-        _loading = false;
-      });
-    }
-  }
-
-  void _filter(String query) {
-    setState(() {
-      _filtered = _times
-          .where((t) => t.nome.toLowerCase().contains(query.toLowerCase()))
-          .toList();
-    });
-  }
-
-  Color _getZoneColor(int pos) {
-    if (pos < 4) return Colors.green;
-    if (pos < 6) return Colors.lightGreen;
-    if (pos >= 16) return Colors.red;
-    return Colors.grey.shade200;
-  }
+  String filtro = '';
 
   @override
   Widget build(BuildContext context) {
-    if (_loading) {
-      return const Scaffold(body: Center(child: CircularProgressIndicator()));
-    }
-    if (_error) {
-      return const Scaffold(
-          body: Center(child: Text("Erro ao carregar dados.")));
-    }
+    final provider = Provider.of<TimesProvider>(context);
+    final times = provider.timesFiltrados(filtro);
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Classificação"),
+        title: const Text(
+          '🏆 Brasileirão 2025',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
         centerTitle: true,
+        backgroundColor: Colors.purpleAccent,
+        foregroundColor: Colors.white,
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8),
-            child: TextField(
-              controller: _searchCtrl,
-              decoration: const InputDecoration(
-                hintText: 'Buscar time...',
-                prefixIcon: Icon(Icons.search),
-              ),
-              onChanged: _filter,
-            ),
-          ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: _filtered.length,
-              itemBuilder: (_, i) {
-                final t = _filtered[i];
-                final pos = _times.indexOf(t) + 1;
-                return Card(
-                  color: _getZoneColor(pos),
-                  child: ListTile(
-                    leading: Hero(
-                      tag: t.id,
-                      child: CircleAvatar(
-                        backgroundImage: AssetImage(t.escudo),
-                      ),
+      body: provider.carregando
+          ? const Center(child: CircularProgressIndicator())
+          : provider.erro != null
+              ? Center(child: Text(provider.erro!))
+              : Container(
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        Color.fromARGB(255, 102, 8, 118),
+                        Colors.pinkAccent
+                      ],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
                     ),
-                    title: Text("$posº ${t.nome}"),
-                    subtitle: Text("Pontos: ${t.pontos}"),
-                    onTap: () =>
-                        Navigator.pushNamed(context, '/detalhes', arguments: t),
                   ),
-                );
-              },
-            ),
-          ),
-        ],
-      ),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16, vertical: 8),
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: 'Buscar time...',
+                            hintStyle: const TextStyle(color: Colors.grey),
+                            prefixIcon: const Icon(Icons.search),
+                            filled: true,
+                            fillColor: Colors.white.withOpacity(0.2),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(30),
+                              borderSide: BorderSide.none,
+                            ),
+                          ),
+                          style: const TextStyle(color: Colors.white),
+                          onChanged: (value) => setState(() => filtro = value),
+                        ),
+                      ),
+                      Expanded(
+                        child: ListView.builder(
+                          itemCount: times.length,
+                          itemBuilder: (context, index) {
+                            final time = times[index];
+                            final posicao = index + 1;
+
+                            return AnimatedContainer(
+                              duration: const Duration(milliseconds: 300),
+                              margin: const EdgeInsets.symmetric(
+                                  horizontal: 12, vertical: 6),
+                              decoration: BoxDecoration(
+                                color: Colors.transparent,
+                                borderRadius: BorderRadius.circular(15),
+                                border: Border.all(
+                                  color: Colors.white,
+                                  width: 2,
+                                ),
+                              ),
+                              child: ListTile(
+                                leading: Hero(
+                                  tag: 'escudo_${time.id}',
+                                  child: Image.asset(
+                                    time.escudo,
+                                    width: 40,
+                                    height: 40,
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                                title: Text(
+                                  '$posicao. ${time.nome}',
+                                  style: const TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16,
+                                      color: Colors.white),
+                                ),
+                                subtitle: Text(
+                                  '${time.pontos} pts | ${time.vitorias}V ${time.empates}E ${time.derrotas}D',
+                                  style: TextStyle(color: Colors.grey[200]),
+                                ),
+                                trailing: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Text(
+                                      '${time.saldoGols >= 0 ? '+' : ''}${time.saldoGols}',
+                                      style: TextStyle(
+                                        color: time.saldoGols >= 0
+                                            ? Colors.lightGreenAccent
+                                            : Colors.redAccent,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    const SizedBox(width: 8),
+                                    IconButton(
+                                      icon: Icon(
+                                        provider.isFavorito(time.id)
+                                            ? Icons.star
+                                            : Icons.star_border_outlined,
+                                        color: provider.isFavorito(time.id)
+                                            ? Colors.amber
+                                            : Colors.white,
+                                      ),
+                                      onPressed: () =>
+                                          provider.alternarFavorito(time.id),
+                                    ),
+                                  ],
+                                ),
+                                onTap: () {
+                                  Navigator.pushNamed(
+                                    context,
+                                    '/detalhes',
+                                    arguments: time,
+                                  );
+                                },
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
     );
   }
 }
