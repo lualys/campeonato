@@ -1,38 +1,242 @@
 {
   "Palmeiras": {
-    "estadio": {"nome_popular": "Allianz Parque", "cidade": "São Paulo"},
+    "estadio": { "nome_popular": "Allianz Parque", "cidade": "São Paulo" },
     "elenco": [
-      {"nome_popular": "Weverton", "posicao": "Goleiro"},
-      {"nome_popular": "Gustavo Gómez", "posicao": "Zagueiro"}
+      { "nome_popular": "Weverton", "posicao": "Goleiro" },
+      { "nome_popular": "Gustavo Gómez", "posicao": "Zagueiro" },
+      { "nome_popular": "Murilo", "posicao": "Zagueiro" },
+      { "nome_popular": "Piquerez", "posicao": "Lateral-esquerdo" },
+      { "nome_popular": "Zé Rafael", "posicao": "Volante" },
+      { "nome_popular": "Raphael Veiga", "posicao": "Meio-campo" },
+      { "nome_popular": "Endrick", "posicao": "Atacante" }
     ]
   },
   "Atlético-MG": {
-    "estadio": {"nome_popular": "Mineirão", "cidade": "Belo Horizonte"},
+    "estadio": { "nome_popular": "Arena MRV", "cidade": "Belo Horizonte" },
     "elenco": [
-      {"nome_popular": "Everson", "posicao": "Goleiro"},
-      {"nome_popular": "Réver", "posicao": "Zagueiro"}
+      { "nome_popular": "Everson", "posicao": "Goleiro" },
+      { "nome_popular": "Arana", "posicao": "Lateral-esquerdo" },
+      { "nome_popular": "Paulinho", "posicao": "Atacante" },
+      { "nome_popular": "Hulk", "posicao": "Atacante" },
+      { "nome_popular": "Igor Gomes", "posicao": "Meio-campo" },
+      { "nome_popular": "Otávio", "posicao": "Volante" },
+      { "nome_popular": "Mauricio Lemos", "posicao": "Zagueiro" }
     ]
   },
   "Flamengo": {
-    "estadio": {"nome_popular": "Maracanã", "cidade": "Rio de Janeiro"},
+    "estadio": { "nome_popular": "Maracanã", "cidade": "Rio de Janeiro" },
     "elenco": [
-      {"nome_popular": "Diego Alves", "posicao": "Goleiro"},
-      {"nome_popular": "Giorgian De Arrascaeta", "posicao": "Meia"}
+      { "nome_popular": "Rossi", "posicao": "Goleiro" },
+      { "nome_popular": "Léo Pereira", "posicao": "Zagueiro" },
+      { "nome_popular": "Ayrton Lucas", "posicao": "Lateral-esquerdo" },
+      { "nome_popular": "Arrascaeta", "posicao": "Meio-campo" },
+      { "nome_popular": "Gerson", "posicao": "Volante" },
+      { "nome_popular": "Bruno Henrique", "posicao": "Atacante" },
+      { "nome_popular": "Pedro", "posicao": "Atacante" }
     ]
   },
   "Botafogo": {
-    "estadio": {"nome_popular": "Nilton Santos", "cidade": "Rio de Janeiro"},
+    "estadio": { "nome_popular": "Nilton Santos", "cidade": "Rio de Janeiro" },
     "elenco": [
-      {"nome_popular": "Santos", "posicao": "Goleiro"},
-      {"nome_popular": "Joel Carli", "posicao": "Zagueiro"}
+      { "nome_popular": "Gatito Fernández", "posicao": "Goleiro" },
+      { "nome_popular": "Adryelson", "posicao": "Zagueiro" },
+      { "nome_popular": "Marçal", "posicao": "Lateral-esquerdo" },
+      { "nome_popular": "Tchê Tchê", "posicao": "Meio-campo" },
+      { "nome_popular": "Eduardo", "posicao": "Meio-campo" },
+      { "nome_popular": "Júnior Santos", "posicao": "Atacante" },
+      { "nome_popular": "Tiquinho Soares", "posicao": "Atacante" }
     ]
   },
   "Grêmio": {
-    "estadio": {"nome_popular": "Arena do Grêmio", "cidade": "Porto Alegre"},
+    "estadio": { "nome_popular": "Arena do Grêmio", "cidade": "Porto Alegre" },
     "elenco": [
-      {"nome_popular": "Marcelo Grohe", "posicao": "Goleiro"},
-      {"nome_popular": "Geromel", "posicao": "Zagueiro"}
+      { "nome_popular": "Marchesín", "posicao": "Goleiro" },
+      { "nome_popular": "Kannemann", "posicao": "Zagueiro" },
+      { "nome_popular": "Reinaldo", "posicao": "Lateral-esquerdo" },
+      { "nome_popular": "Pepê", "posicao": "Meio-campo" },
+      { "nome_popular": "Cristaldo", "posicao": "Meio-campo" },
+      { "nome_popular": "Soteldo", "posicao": "Atacante" },
+      { "nome_popular": "Diego Costa", "posicao": "Atacante" }
+    ]
+  },
+  "Fluminense": {
+    "estadio": { "nome_popular": "Maracanã", "cidade": "Rio de Janeiro" },
+    "elenco": [
+      { "nome_popular": "Fábio", "posicao": "Goleiro" },
+      { "nome_popular": "Felipe Melo", "posicao": "Zagueiro" },
+      { "nome_popular": "Marcelo", "posicao": "Lateral-esquerdo" },
+      { "nome_popular": "André", "posicao": "Volante" },
+      { "nome_popular": "Ganso", "posicao": "Meio-campo" },
+      { "nome_popular": "Arias", "posicao": "Atacante" },
+      { "nome_popular": "Germán Cano", "posicao": "Atacante" }
+    ]
+  },
+  "Athletico-PR": {
+    "estadio": { "nome_popular": "Arena da Baixada", "cidade": "Curitiba" },
+    "elenco": [
+      { "nome_popular": "Bento", "posicao": "Goleiro" },
+      { "nome_popular": "Pedro Henrique", "posicao": "Zagueiro" },
+      { "nome_popular": "Esquivel", "posicao": "Lateral-esquerdo" },
+      { "nome_popular": "Fernandinho", "posicao": "Volante" },
+      { "nome_popular": "Christian", "posicao": "Meio-campo" },
+      { "nome_popular": "Cuello", "posicao": "Atacante" },
+      { "nome_popular": "Mastriani", "posicao": "Atacante" }
+    ]
+  },
+  "São Paulo": {
+    "estadio": { "nome_popular": "Morumbi", "cidade": "São Paulo" },
+    "elenco": [
+      { "nome_popular": "Rafael", "posicao": "Goleiro" },
+      { "nome_popular": "Arboleda", "posicao": "Zagueiro" },
+      { "nome_popular": "Welington", "posicao": "Lateral-esquerdo" },
+      { "nome_popular": "Alisson", "posicao": "Volante" },
+      { "nome_popular": "Galoppo", "posicao": "Meio-campo" },
+      { "nome_popular": "Calleri", "posicao": "Atacante" },
+      { "nome_popular": "Luciano", "posicao": "Atacante" }
+    ]
+  },
+  "Internacional": {
+    "estadio": { "nome_popular": "Beira-Rio", "cidade": "Porto Alegre" },
+    "elenco": [
+      { "nome_popular": "Rochet", "posicao": "Goleiro" },
+      { "nome_popular": "Vitão", "posicao": "Zagueiro" },
+      { "nome_popular": "Renê", "posicao": "Lateral-esquerdo" },
+      { "nome_popular": "Aránguiz", "posicao": "Volante" },
+      { "nome_popular": "Alan Patrick", "posicao": "Meio-campo" },
+      { "nome_popular": "Enner Valencia", "posicao": "Atacante" },
+      { "nome_popular": "Bustos", "posicao": "Lateral-direito" }
+    ]
+  },
+  "Fortaleza": {
+    "estadio": { "nome_popular": "Arena Castelão", "cidade": "Fortaleza" },
+    "elenco": [
+      { "nome_popular": "João Ricardo", "posicao": "Goleiro" },
+      { "nome_popular": "Titi", "posicao": "Zagueiro" },
+      { "nome_popular": "Bruno Pacheco", "posicao": "Lateral-esquerdo" },
+      { "nome_popular": "Caio Alexandre", "posicao": "Volante" },
+      { "nome_popular": "Lucas Crispim", "posicao": "Meio-campo" },
+      { "nome_popular": "Lucero", "posicao": "Atacante" },
+      { "nome_popular": "Marinho", "posicao": "Atacante" }
+    ]
+  },
+  "Bahia": {
+    "estadio": { "nome_popular": "Arena Fonte Nova", "cidade": "Salvador" },
+    "elenco": [
+      { "nome_popular": "Marcos Felipe", "posicao": "Goleiro" },
+      { "nome_popular": "Kanu", "posicao": "Zagueiro" },
+      { "nome_popular": "Luciano Juba", "posicao": "Lateral-esquerdo" },
+      { "nome_popular": "Cauly", "posicao": "Meio-campo" },
+      { "nome_popular": "Thaciano", "posicao": "Meio-campo" },
+      { "nome_popular": "Biel", "posicao": "Atacante" },
+      { "nome_popular": "Everton Ribeiro", "posicao": "Meio-campo" }
+    ]
+  },
+  "Corinthians": {
+    "estadio": { "nome_popular": "Neo Química Arena", "cidade": "São Paulo" },
+    "elenco": [
+      { "nome_popular": "Cássio", "posicao": "Goleiro" },
+      { "nome_popular": "Fagner", "posicao": "Lateral-direito" },
+      { "nome_popular": "Félix Torres", "posicao": "Zagueiro" },
+      { "nome_popular": "Maycon", "posicao": "Volante" },
+      { "nome_popular": "Giovane", "posicao": "Atacante" },
+      { "nome_popular": "Yuri Alberto", "posicao": "Atacante" },
+      { "nome_popular": "Wesley", "posicao": "Atacante" }
+    ]
+  },
+  "Cruzeiro": {
+    "estadio": { "nome_popular": "Mineirão", "cidade": "Belo Horizonte" },
+    "elenco": [
+      { "nome_popular": "Rafael Cabral", "posicao": "Goleiro" },
+      { "nome_popular": "Marlon", "posicao": "Lateral-esquerdo" },
+      { "nome_popular": "Lucas Silva", "posicao": "Volante" },
+      { "nome_popular": "Ramiro", "posicao": "Meio-campo" },
+      { "nome_popular": "Matheus Pereira", "posicao": "Meio-campo" },
+      { "nome_popular": "Arthur Gomes", "posicao": "Atacante" },
+      { "nome_popular": "Juan Dinenno", "posicao": "Atacante" }
+    ]
+  },
+  "Vasco": {
+    "estadio": { "nome_popular": "São Januário", "cidade": "Rio de Janeiro" },
+    "elenco": [
+      { "nome_popular": "Léo Jardim", "posicao": "Goleiro" },
+      { "nome_popular": "Léo", "posicao": "Zagueiro" },
+      { "nome_popular": "Piton", "posicao": "Lateral-esquerdo" },
+      { "nome_popular": "Zé Gabriel", "posicao": "Volante" },
+      { "nome_popular": "Galdames", "posicao": "Meio-campo" },
+      { "nome_popular": "Payet", "posicao": "Meio-campo" },
+      { "nome_popular": "Vegetti", "posicao": "Atacante" }
+    ]
+  },
+  "Cuiabá": {
+    "estadio": { "nome_popular": "Arena Pantanal", "cidade": "Cuiabá" },
+    "elenco": [
+      { "nome_popular": "Walter", "posicao": "Goleiro" },
+      { "nome_popular": "Alan Empereur", "posicao": "Zagueiro" },
+      { "nome_popular": "Rikelme", "posicao": "Lateral-esquerdo" },
+      { "nome_popular": "Denilson", "posicao": "Volante" },
+      { "nome_popular": "Fernando Sobral", "posicao": "Meio-campo" },
+      { "nome_popular": "Clayson", "posicao": "Atacante" },
+      { "nome_popular": "Isidro Pitta", "posicao": "Atacante" }
+    ]
+  },
+  "Bragantino": {
+    "estadio": { "nome_popular": "Nabi Abi Chedid", "cidade": "Bragança Paulista" },
+    "elenco": [
+      { "nome_popular": "Cleiton", "posicao": "Goleiro" },
+      { "nome_popular": "Léo Ortiz", "posicao": "Zagueiro" },
+      { "nome_popular": "Juninho Capixaba", "posicao": "Lateral-esquerdo" },
+      { "nome_popular": "Eric Ramires", "posicao": "Meio-campo" },
+      { "nome_popular": "Lucas Evangelista", "posicao": "Meio-campo" },
+      { "nome_popular": "Helinho", "posicao": "Atacante" },
+      { "nome_popular": "Eduardo Sasha", "posicao": "Atacante" }
+    ]
+  },
+  "Atlético-GO": {
+    "estadio": { "nome_popular": "Antônio Accioly", "cidade": "Goiânia" },
+    "elenco": [
+      { "nome_popular": "Ronaldo", "posicao": "Goleiro" },
+      { "nome_popular": "Bruno Tubarão", "posicao": "Lateral-direito" },
+      { "nome_popular": "Alix Vinícius", "posicao": "Zagueiro" },
+      { "nome_popular": "Baralhas", "posicao": "Volante" },
+      { "nome_popular": "Shaylon", "posicao": "Meio-campo" },
+      { "nome_popular": "Luiz Fernando", "posicao": "Atacante" },
+      { "nome_popular": "Vagner Love", "posicao": "Atacante" }
+    ]
+  },
+  "Curitiba": {
+    "estadio": { "nome_popular": "Couto Pereira", "cidade": "Curitiba" },
+    "elenco": [
+      { "nome_popular": "Gabriel", "posicao": "Goleiro" },
+      { "nome_popular": "Henrique", "posicao": "Zagueiro" },
+      { "nome_popular": "Natanael", "posicao": "Lateral-direito" },
+      { "nome_popular": "Bruno Gomes", "posicao": "Volante" },
+      { "nome_popular": "Robson", "posicao": "Atacante" },
+      { "nome_popular": "Kaio César", "posicao": "Meio-campo" },
+      { "nome_popular": "Islam Slimani", "posicao": "Atacante" }
+    ]
+  },
+  "Vitória": {
+    "estadio": { "nome_popular": "Barradão", "cidade": "Salvador" },
+    "elenco": [
+      { "nome_popular": "Lucas Arcanjo", "posicao": "Goleiro" },
+      { "nome_popular": "Wagner Leonardo", "posicao": "Zagueiro" },
+      { "nome_popular": "Raul Prata", "posicao": "Lateral-direito" },
+      { "nome_popular": "Dudu", "posicao": "Volante" },
+      { "nome_popular": "Osvaldo", "posicao": "Atacante" },
+      { "nome_popular": "Iury Castilho", "posicao": "Atacante" },
+      { "nome_popular": "Léo Gamalho", "posicao": "Atacante" }
+    ]
+  },
+  "Juventude": {
+    "estadio": { "nome_popular": "Alfredo Jaconi", "cidade": "Caxias do Sul" },
+    "elenco": [
+      { "nome_popular": "Gabriel", "posicao": "Goleiro" },
+      { "nome_popular": "Danilo Boza", "posicao": "Zagueiro" },
+      { "nome_popular": "Alan Ruschel", "posicao": "Lateral-esquerdo" },
+      { "nome_popular": "Jean Irmer", "posicao": "Volante" },
+      { "nome_popular": "Jadson", "posicao": "Meio-campo" },
+      { "nome_popular": "Erison", "posicao": "Atacante" },
+      { "nome_popular": "Mandaca", "posicao": "Atacante" }
     ]
   }
-  /* Adicione os outros times seguindo o mesmo padrão */
 }
